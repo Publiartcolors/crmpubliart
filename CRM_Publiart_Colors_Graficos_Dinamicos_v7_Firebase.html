@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM Comercial V2 | Publiart Colors + Parts Supply</title>
+<style>
+:root{--navy:#10233f;--navy2:#17365f;--blue:#1d4ed8;--gold:#c89b3c;--bg:#f4f7fb;--text:#172033;--muted:#667085;--line:#e5e7eb;--green:#16834b;--orange:#d97706;--red:#c62828;--purple:#6d28d9}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#0c1d35,#17365f)}
+.login-card{width:min(450px,92vw);background:#fff;border-radius:22px;padding:34px;box-shadow:0 25px 70px #0005}.brand{font-weight:800;letter-spacing:.5px;color:var(--navy);font-size:23px}.brand span{color:var(--gold)}
+.login h1{margin:28px 0 8px;font-size:28px}.login p{color:var(--muted)}
+.field{margin:12px 0}.field label{display:block;font-size:11px;font-weight:800;margin-bottom:6px;color:#475467;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid #d7dce4;border-radius:9px;background:#fff;outline:none}.field textarea{min-height:88px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #1d4ed81a}
+.primary{border:0;border-radius:10px;padding:12px 16px;background:var(--navy);color:white;font-weight:700}.primary:hover{background:var(--navy2)}.login .primary{width:100%;margin-top:8px}.login .demo{text-align:center}.secondary{border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 14px;font-weight:700}.danger{border:1px solid #f3c2c2;background:#fff;color:var(--red);border-radius:9px;padding:9px 12px;font-weight:700}.demo{font-size:11px;color:#98a2b3;margin-top:14px;line-height:1.65}
+.app{display:flex;min-height:100vh}.sidebar{width:245px;background:var(--navy);color:#fff;padding:24px 15px;position:fixed;inset:0 auto 0 0}.side-brand{padding:8px 10px 25px;font-size:21px;font-weight:800}.side-brand span{color:#e4bd62}.profile{background:#ffffff12;border:1px solid #ffffff18;border-radius:14px;padding:13px;margin-bottom:20px}.profile b{display:block}.profile small{color:#b9c5d5}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;color:#cbd5e1;padding:11px 13px;border-radius:10px;margin:3px 0}.nav button.active,.nav button:hover{background:#ffffff12;color:#fff}.logout{position:absolute;bottom:20px;left:15px;right:15px;border:1px solid #ffffff20;background:transparent;color:#cbd5e1;border-radius:10px;padding:10px}
+.main{margin-left:245px;width:calc(100% - 245px);padding:25px 30px}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}.top h1{margin:0;font-size:26px}.top p{margin:5px 0 0;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters select,.filters input{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.card .label{color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase}.value{font-size:23px;font-weight:800;margin-top:7px}.sub{font-size:11px;color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}.panel h2{font-size:16px;margin:0 0 14px}.panel h3{font-size:13px;margin:0 0 10px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:10px 8px;border-bottom:1px solid #eef0f3;font-size:12px;white-space:nowrap}.table th{color:var(--muted);font-size:10px;text-transform:uppercase}.badge{display:inline-flex;padding:5px 8px;border-radius:99px;font-size:10px;font-weight:800}.green{background:#e7f7ef;color:var(--green)}.orange{background:#fff4df;color:var(--orange)}.red{background:#fdeaea;color:var(--red)}.blue{background:#eaf0ff;color:#2448a5}.purple{background:#f0eaff;color:var(--purple)}.gray{background:#eef1f4;color:#536071}
+.progress{height:8px;background:#edf0f4;border-radius:99px;overflow:hidden;margin-top:7px}.progress i{display:block;height:100%;background:var(--blue);border-radius:99px}.exec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.exec{border:1px solid var(--line);border-radius:13px;padding:14px}.exec-head{display:flex;justify-content:space-between;gap:8px}.exec small{color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 15px}.full{grid-column:1/-1}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions button{width:auto}.mini{font-size:11px;color:var(--muted)}.chart{min-height:235px;display:flex;align-items:flex-end;gap:10px;padding:20px 8px 5px;border-bottom:1px solid var(--line)}.barwrap{height:205px;flex:1;display:flex;align-items:flex-end;justify-content:center;gap:4px}.bar{width:32%;min-width:8px;border-radius:5px 5px 0 0;position:relative;min-height:2px}.bar span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted);white-space:nowrap}.barlabel{font-size:9px;text-align:center;color:var(--muted);margin-top:7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.legend{display:flex;gap:14px;font-size:10px;color:var(--muted);margin-top:8px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;background:var(--blue)}.dot.gold{background:var(--gold)}.dot.green{background:var(--green)}.dot.red{background:var(--red)}
+.modal{position:fixed;inset:0;background:#0b1739aa;display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal.show{display:flex}.modal-card{background:#fff;border-radius:18px;width:min(900px,96vw);max-height:90vh;overflow:auto;padding:22px;box-shadow:0 25px 80px #0005}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:15px}.modal-head h2{margin:0;font-size:19px}.close{border:0;background:#eef1f4;border-radius:50%;width:32px;height:32px}.timeline{border-left:2px solid #dfe5ee;margin:8px 0 0 8px;padding-left:18px}.event{position:relative;padding:0 0 16px}.event:before{content:"";position:absolute;left:-25px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--blue)}.event b{font-size:12px}.event p{margin:3px 0;font-size:11px;color:var(--muted)}.split{display:grid;grid-template-columns:1fr 1fr;gap:15px}.notice{padding:11px 13px;border-radius:10px;background:#f6f8fb;border:1px solid var(--line);font-size:12px;margin-bottom:12px}
+.score{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.score .card{text-align:center}.score .value{font-size:21px}.reason{display:flex;justify-content:space-between;gap:8px;margin:8px 0;font-size:11px}.reasonbar{height:8px;background:#eef1f4;border-radius:99px;overflow:hidden;flex:1}.reasonbar i{display:block;height:100%;background:var(--red)}
+.empty{padding:35px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:1200px){.cards{grid-template-columns:repeat(3,1fr)}.grid3{grid-template-columns:1fr 1fr}.score{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.grid,.grid3{grid-template-columns:1fr}.sidebar{width:210px}.main{margin-left:210px;width:calc(100% - 210px)}}
+@media(max-width:700px){.sidebar{position:static;width:100%;height:auto}.app{display:block}.main{margin:0;width:100%;padding:18px}.logout{position:static;width:100%;margin-top:15px}.cards,.exec-grid,.form-grid,.split,.score{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+
+/* CRM PRO — gráficos independientes y seguimiento en tiempo real */
+.live-strip{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px;font-size:11px;color:var(--muted)}
+.live-strip strong{color:var(--text)}.live-state{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--green)}.live-state.offline{color:var(--orange)}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px color-mix(in srgb,currentColor 12%,transparent)}
+.exec-chart{display:grid;gap:12px}.exec-row{display:grid;grid-template-columns:180px minmax(220px,1fr) 105px 80px;align-items:center;gap:14px;padding:13px 14px;border:1px solid #e8edf3;border-radius:12px;background:#fbfcfe}.exec-row:hover{background:#f7f9fc}.exec-name{font-size:12px;font-weight:800;color:var(--text)}.exec-name small{display:block;margin-top:3px;color:var(--muted);font-weight:600}.metric-track{height:13px;background:#e9eef4;border-radius:99px;overflow:hidden}.metric-fill{height:100%;border-radius:99px;transition:width .5s ease}.metric-main{font-size:13px;font-weight:900;text-align:right}.metric-sub{font-size:10px;color:var(--muted);text-align:right;margin-top:3px}.metric-pct{font-size:15px;font-weight:900;text-align:right}.metric-pct small{display:block;font-size:10px;color:var(--muted);font-weight:700;margin-top:2px}.target-line{display:flex;justify-content:space-between;gap:8px;margin-top:5px;font-size:10px;color:var(--muted)}.chart-section{margin-top:18px}.chart-section .panel{padding:20px}.chart-section .panel h2{margin-bottom:5px}.chart-caption{font-size:11px;color:var(--muted);margin:0 0 15px}.exec-empty{padding:28px;text-align:center;border:1px dashed #d9e0e8;border-radius:12px;color:var(--muted)}
+@media(max-width:900px){.exec-row{grid-template-columns:1fr 100px;gap:10px}.exec-row .metric-track-wrap{grid-column:1/-1;grid-row:2}.exec-row .metric-main{grid-column:1}.exec-row .metric-pct{grid-column:2;grid-row:1}.target-line{grid-column:1/-1}}
+@media(max-width:600px){.live-strip{align-items:flex-start;flex-direction:column}.exec-row{grid-template-columns:1fr 85px}.exec-name{grid-column:1/-1}}
+/* VISUAL PRO — gráficos dinámicos */
+.chart{display:flex;align-items:flex-end;gap:14px;min-height:250px;padding:18px 8px 4px;border-radius:16px;background:linear-gradient(145deg,#071b35,#102d50);box-shadow:inset 0 0 35px #0005;overflow-x:auto}
+.chart>div{min-width:72px;height:220px;display:flex;flex-direction:column;justify-content:flex-end}
+.barwrap{height:185px;display:flex;align-items:flex-end;justify-content:center}
+.bar{width:min(54px,72%);min-height:7px;border-radius:10px 10px 3px 3px;position:relative;box-shadow:0 0 18px #ffffff33;animation:rise .75s ease-out both;transition:filter .25s,transform .25s}
+.bar:hover{filter:brightness(1.25);transform:translateY(-5px)}
+.bar span{position:absolute;left:50%;transform:translateX(-50%);top:-24px;color:#fff;font-weight:900;font-size:11px;white-space:nowrap}
+.barlabel{font-size:10px;color:#e8f1f8;text-align:center;margin-top:8px;line-height:1.25}
+.reason-chart{background:linear-gradient(145deg,#101827,#202d43);padding:18px;border-radius:16px}
+.reason-item{display:grid;grid-template-columns:145px 1fr 55px;gap:10px;align-items:center;margin:15px 0}
+.reason-track{height:17px;background:#ffffff12;border-radius:99px;overflow:hidden;border:1px solid #ffffff10}
+.reason-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#ff416c,#ff9f43);box-shadow:0 0 14px #ff416c88;animation:grow .8s ease-out both}
+.reason-label{color:#fff;font-size:11px;font-weight:700}.reason-pct{color:#ffd166;font-weight:900;text-align:right}
+.bsc-chart{display:grid;gap:14px;background:linear-gradient(145deg,#071b35,#142f52);padding:20px;border-radius:16px}
+.bsc-row{display:grid;grid-template-columns:185px 1fr 65px;align-items:center;gap:12px}
+.bsc-name{color:#fff;font-size:11px;font-weight:800}.bsc-track{height:22px;background:#ffffff12;border-radius:99px;overflow:hidden}.bsc-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#00d2ff,#3a7bd5);box-shadow:0 0 16px #00d2ff66;animation:grow .9s ease-out both}.bsc-value{color:#fff;font-size:12px;font-weight:900;text-align:right}
+@keyframes rise{from{height:0;opacity:.2}to{opacity:1}} @keyframes grow{from{width:0;opacity:.2}to{opacity:1}}
+@media(max-width:700px){.bsc-row,.reason-item{grid-template-columns:105px 1fr 50px}.chart>div{min-width:65px}}
+
+/* DASHBOARD UX — rendimiento limpio e independiente */
+.dashboard-performance{margin-top:18px}.performance-panel{padding:20px}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px}.section-head h2{margin:0 0 5px}.section-head p{margin:0;color:var(--muted);font-size:11px;line-height:1.5}.section-live{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:#e9f8f0;color:var(--green);font-size:10px;font-weight:800;white-space:nowrap}.performance-list{display:grid;gap:10px}.performance-card{display:grid;grid-template-columns:235px minmax(250px,1.15fr) minmax(220px,1fr) 100px;align-items:center;gap:20px;padding:15px 16px;border:1px solid #e5eaf0;border-radius:14px;background:#fff;box-shadow:0 2px 8px rgba(16,35,63,.04);transition:transform .15s,box-shadow .15s,border-color .15s}.performance-card:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(16,35,63,.08);border-color:#d5dde7}.performance-identity{display:flex;align-items:center;gap:11px;min-width:0}.avatar{width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:grid;place-items:center;font-size:11px;font-weight:900}.performance-identity h3{font-size:13px;margin:0 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.performance-identity span{font-size:10px;color:var(--muted)}.metric-label{font-size:9px;font-weight:900;letter-spacing:.08em;color:#7a8494;margin-bottom:4px}.performance-money strong{font-size:17px;line-height:1}.metric-target{font-size:10px;color:var(--muted);margin-top:3px}.clean-progress{height:7px;background:#edf1f5;border-radius:99px;overflow:hidden;margin-top:9px}.clean-progress i{display:block;height:100%;border-radius:99px;transition:width .45s ease}.clean-progress i.green{background:var(--green)}.clean-progress i.orange{background:var(--orange)}.clean-progress i.red{background:var(--red)}.progress-meta{display:flex;justify-content:space-between;gap:10px;margin-top:5px;font-size:9px;color:var(--muted)}.management-number{display:flex;align-items:baseline;gap:4px}.management-number strong{font-size:19px}.management-number span{font-size:12px;color:var(--muted)}.management-number b{margin-left:auto;font-size:11px}.management-number b.green{color:var(--green)}.management-number b.orange{color:var(--orange)}.management-number b.red{color:var(--red)}.performance-accepted{text-align:center;border-left:1px solid #edf0f3;padding-left:18px}.performance-accepted strong{display:block;font-size:20px;line-height:1.1}.performance-accepted span{font-size:9px;color:var(--muted)}.dashboard-lower{margin-top:18px}.dashboard-lower .panel{min-height:150px}
+@media(max-width:1100px){.performance-card{grid-template-columns:210px 1fr 1fr 80px;gap:14px}.performance-accepted{padding-left:12px}}
+@media(max-width:900px){.performance-card{grid-template-columns:1fr 1fr}.performance-identity{grid-column:1/-1}.performance-accepted{text-align:left;border-left:0;border-top:1px solid #edf0f3;padding:10px 0 0}.section-head{flex-direction:column}.section-live{white-space:normal}}
+@media(max-width:600px){.performance-card{grid-template-columns:1fr;padding:14px}.performance-money,.performance-management,.performance-accepted{grid-column:1}.performance-accepted{padding-top:12px}.progress-meta{font-size:8px}}
+
+/* UX 2026 — rendimiento sin solapamientos */
+.performance-list{display:grid;gap:14px;width:100%;}
+.performance-card{grid-template-columns:minmax(190px,1.05fr) minmax(250px,1.25fr) minmax(230px,1fr) 100px;min-width:0;overflow:hidden;align-items:stretch;}
+.performance-identity,.performance-money,.performance-management,.performance-accepted{min-width:0;overflow:hidden;}
+.performance-money strong,.management-number strong,.performance-accepted strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}
+.performance-accepted{display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.performance-card + .performance-card{margin-top:0;}
+.dashboard-performance{width:100%;overflow:hidden;}
+.dashboard-performance .panel{overflow:hidden;}
+.section-head{padding-bottom:2px;}
+.section-live{box-shadow:0 4px 12px rgba(22,131,75,.10);}
+@media(max-width:1180px){.performance-card{grid-template-columns:minmax(180px,1fr) minmax(220px,1fr);}.performance-accepted{border-left:0;border-top:1px solid #edf0f3;padding:12px 0 0;align-items:flex-start;text-align:left;}.performance-accepted strong{display:block;}.performance-card .performance-money,.performance-card .performance-management{padding-top:2px;}}
+@media(max-width:720px){.performance-card{grid-template-columns:1fr;gap:14px;}.performance-accepted{padding-top:12px;}.performance-card{padding:16px;}.progress-meta{flex-wrap:wrap;}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+</head>
+<body>
+<div id="login" class="login">
+  <div class="login-card">
+    <div class="brand">PUBLIART <span>COLORS</span></div>
+    <h1>CRM Comercial</h1><p>Control de prospectos, clientes, oportunidades y rendimiento.</p>
+    <div class="field"><label>Usuario</label><input id="loginUser" placeholder="Usuario" onkeydown="if(event.key==='Enter')login()"></div>
+    <div class="field"><label>PIN de 4 dígitos</label><input id="loginPass" type="password" inputmode="numeric" autocomplete="current-password" maxlength="4" pattern="[0-9]{4}" placeholder="••••" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4)" onkeydown="if(event.key==='Enter')login()"></div>
+    <button class="primary" onclick="login()">Ingresar</button>
+    <div class="demo">Ingrese su usuario y PIN de 4 dígitos.</div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="side-brand">CRM <span>COMERCIAL</span></div>
+    <div class="profile"><b id="sideName"></b><small id="sideRole"></small></div>
+    <nav class="nav" id="nav"></nav>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <div><h1 id="pageTitle">Dashboard</h1><p id="pageSub">Rendimiento comercial</p></div>
+      <div class="filters" id="globalFilters"></div>
+    </div>
+    <section id="content"></section>
+  </main>
+</div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+ <div class="modal-card"><div class="modal-head"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+const defaultUsers={
+ admin:{pass:"9090",name:"Fernando Pachón",role:"Administrador",key:"fernando"},
+ gerente:{pass:"2468",name:"Gerente General",role:"Consulta",key:"gerente"},
+ daniel:{pass:"4821",name:"Daniel Romero",role:"Ejecutivo Comercial",key:"daniel"},
+ juan:{pass:"7354",name:"Juan Manuel Burgos",role:"Ejecutivo Comercial",key:"juan"},
+ angie:{pass:"6192",name:"Angie Gaitán",role:"Ejecutivo Comercial",key:"angie"},
+ fernando:{pass:"8647",name:"Fernando Pachón",role:"Ejecutivo Comercial",key:"fernando"},
+ marbel:{pass:"5217",name:"Marbel Parra",role:"Punto de Venta",key:"marbel"}
+};
+const defaultTargets={daniel:{total:22000000,parts:11000000,pub:11000000,management:40},juan:{total:60000000,parts:30000000,pub:30000000,management:40},angie:{total:10000000,parts:5000000,pub:5000000,management:40},fernando:{total:50000000,parts:25000000,pub:25000000,management:40},marbel:{total:450000000,parts:225000000,pub:225000000,management:40}};
+const lineNames=["Parts Supply","Publiart Colors"];
+const offerItems=["Publicidad","Repuestos","Materiales","Tintas","Herramientas","Máquinas"];
+const stages=["Nuevo","Visitado","Aceptado","Cotizado","Negociación","Ganado","Perdido"];
+const lossReasons=["Precio","Competencia","Presupuesto","Tiempo de entrega","Sin respuesta","No era el producto/servicio","Decisión interna del cliente","Otra"];
+function readJSON(key,fallback){try{const raw=localStorage.getItem(key);if(!raw)return fallback;const parsed=JSON.parse(raw);return parsed&&typeof parsed==="object"?parsed:fallback}catch(e){return fallback}}
+let users=readJSON("crmUsersV2",null);
+if(!users || Array.isArray(users)) users=JSON.parse(JSON.stringify(defaultUsers));
+Object.values(users).forEach(u=>{u.pass=String(u.pass||"").replace(/\D/g,"").slice(0,4)});
+let targets=readJSON("crmTargetsV2",null);
+if(!targets || Array.isArray(targets)) targets=JSON.parse(JSON.stringify(defaultTargets));
+Object.keys(users).forEach(k=>{if(users[k]&&(users[k].role==="Ejecutivo Comercial"||users[k].role==="Punto de Venta")){if(!targets[k])targets[k]={total:0,parts:0,pub:0,management:40};if(!targets[k].management)targets[k].management=40;}});
+let deletedUsers=readJSON("crmDeletedUsersV2",{});
+let data=readJSON("crmV2",null);
+if(!data || Array.isArray(data)){
+ const old=readJSON("crmV1",{records:[],assignments:[]});
+ data={records:Array.isArray(old.records)?old.records.map(r=>({id:r.id||uid(),client:r.client||"Registro migrado",contact:r.contact||"",line:lineNames.includes(r.line)?r.line:"Publiart Colors",executive:users[r.executive]?r.executive:"fernando",assignedDate:r.date||today(),acceptedDate:null,status:r.status==="Nueva"?"Nuevo":(stages.includes(r.status)?r.status:"Nuevo"),offers:Array.isArray(r.offers)?r.offers:[],value:Number(r.value||0),quotedValue:Number(r.value||0),negotiationValue:0,saleValue:r.status==="Ganado"?Number(r.value||0):0,management:Number(r.gestion||0),newClient:Number(r.newClient||0),notes:r.notes||"",lossReason:"",events:[{date:r.date||today(),type:"Registro migrado",text:"Registro proveniente de la V1."}]})):[],assignments:Array.isArray(old.assignments)?old.assignments:[]};
+}
+if(!Array.isArray(data.records))data.records=[];
+if(!Array.isArray(data.assignments))data.assignments=[];
+data.records=data.records.map(r=>({...r,id:r.id||uid(),client:r.client||"Sin nombre",contact:r.contact||"",line:lineNames.includes(r.line)?r.line:"Publiart Colors",executive:users[r.executive]?r.executive:"fernando",status:stages.includes(r.status)?r.status:"Nuevo",offers:Array.isArray(r.offers)?r.offers:[],events:Array.isArray(r.events)?r.events:[],value:Number(r.value||0),quotedValue:Number(r.quotedValue||0),negotiationValue:Number(r.negotiationValue||0),saleValue:Number(r.saleValue||0),management:Number(r.management||0),newClient:Number(r.newClient||0)}));
+let current=null,page="dashboard",filters={month:new Date().toISOString().slice(0,7),exec:"Todos",status:"Todos",line:"Todas"};
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function today(){return new Date().toISOString().slice(0,10)}
+const FIREBASE_CONFIG={apiKey:"AIzaSyB0WJtFGm9nKB8S9LMZEshDkzAnQZns90g",authDomain:"publiart-colors-crm.firebaseapp.com",databaseURL:"https://publiart-colors-crm-default-rtdb.firebaseio.com",projectId:"publiart-colors-crm",storageBucket:"publiart-colors-crm.firebasestorage.app",messagingSenderId:"708904248113",appId:"1:708904248113:web:5256d977e8bb593712c610"};
+let onlineMode=false,cloudReady=false,cloudApplying=false,cloudTimer=null,cloudRef=null,lastCloudUpdate=null,firebaseUid=null;
+function isFirebaseConfigured(){return FIREBASE_CONFIG.apiKey&&!FIREBASE_CONFIG.apiKey.includes("PON_AQUI")&&FIREBASE_CONFIG.databaseURL&&!FIREBASE_CONFIG.databaseURL.includes("PON_AQUI")}
+function setOnlineIndicator(){const top=document.getElementById("globalFilters");if(!top)return;const old=document.getElementById("onlineIndicator");if(old)old.remove();const e=document.createElement("span");e.id="onlineIndicator";e.className="online-pill"+(cloudReady?"":" off");e.innerHTML=`<span class="live-dot"></span>${cloudReady?"EN LÍNEA · TIEMPO REAL":"MODO LOCAL · CONFIGURE NUBE"}`;top.appendChild(e)}
+function cloudPayload(){return {data,users,targets,deletedUsers,updatedAt:new Date().toISOString(),updatedBy:current?.name||"Sistema"}}
+function applyCloudSnapshot(v){if(!v||cloudApplying)return;lastCloudUpdate=v.updatedAt||new Date().toISOString();cloudApplying=true;try{if(v.users)users=v.users;if(v.targets)targets=v.targets;if(v.deletedUsers)deletedUsers=v.deletedUsers;if(v.data)data=v.data;if(!Array.isArray(data.records))data.records=[];if(!Array.isArray(data.assignments))data.assignments=[];localStorage.setItem("crmV2",JSON.stringify(data));localStorage.setItem("crmUsersV2",JSON.stringify(users));localStorage.setItem("crmTargetsV2",JSON.stringify(targets));localStorage.setItem("crmDeletedUsersV2",JSON.stringify(deletedUsers))}finally{cloudApplying=false}if(!current){const sess=readJSON("crmSessionV2",null);if(sess?.login&&users[sess.login]){current={login:sess.login,...users[sess.login],firebaseUid:firebaseUid};document.getElementById("login")?.classList.add("hidden");document.getElementById("app")?.classList.remove("hidden")}}if(current){setOnlineIndicator();render()}}
+function initCloud(){if(!isFirebaseConfigured()){setOnlineIndicator();return}try{if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);firebase.auth().onAuthStateChanged(user=>{if(user)firebaseUid=user.uid});firebase.auth().signInAnonymously().then(cred=>{firebaseUid=cred.user?.uid||null;cloudRef=firebase.database().ref("publiartColorsCRM");cloudReady=true;onlineMode=true;setOnlineIndicator();cloudRef.on("value",snap=>applyCloudSnapshot(snap.val()));cloudRef.once("value").then(snap=>{if(!snap.exists())cloudRef.set(cloudPayload())})}).catch(e=>{console.error(e);setOnlineIndicator();toast("No se pudo conectar a la nube; se mantiene el modo local.")})}catch(e){console.error(e);setOnlineIndicator()}}
+function save(){try{localStorage.setItem("crmV2",JSON.stringify(data));localStorage.setItem("crmUsersV2",JSON.stringify(users));localStorage.setItem("crmTargetsV2",JSON.stringify(targets));localStorage.setItem("crmDeletedUsersV2",JSON.stringify(deletedUsers));if(cloudReady&&cloudRef&&!cloudApplying){clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudRef.update(cloudPayload()).catch(e=>console.error(e)),80)}return true}catch(e){toast("No se pudieron guardar los datos");return false}}
+function keepData(){save();toast(cloudReady?"Datos conservados y sincronizados.":"Datos conservados en este navegador.")}
+function resetData(){if(!confirm("¿Restablecer el CRM? Se eliminarán los registros, asignaciones y cambios guardados en ESTE navegador. Los PIN predeterminados se conservarán."))return;localStorage.removeItem("crmV2");localStorage.removeItem("crmV1");localStorage.removeItem("crmUsersV2");localStorage.removeItem("crmTargetsV2");localStorage.removeItem("crmDeletedUsersV2");users=JSON.parse(JSON.stringify(defaultUsers));targets=JSON.parse(JSON.stringify(defaultTargets));deletedUsers={};data={records:[],assignments:[]};save();page="dashboard";filters={month:new Date().toISOString().slice(0,7),exec:"Todos",status:"Todos",line:"Todas"};toast("CRM restablecido sin cerrar la sesión");render()}
+function money(n){return new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(Number(n)||0)}
+function pct(n){return Math.round((Number(n)||0)*100)+"%"}
+function fmtDate(s){if(!s)return "—";const raw=String(s),d=raw.length===10?new Date(raw+"T12:00:00"):new Date(raw);if(Number.isNaN(d.getTime()))return "—";return d.toLocaleDateString("es-CO",{day:"2-digit",month:"2-digit",year:"numeric"})}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function statusClass(s){return s==="Ganado"?"green":s==="Perdido"?"red":s==="Negociación"?"orange":s==="Cotizado"?"purple":s==="Aceptado"?"blue":s==="Visitado"?"blue":"gray"}
+function stageLabel(s){return s==="Nuevo"?"Asignados":s}
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(()=>e.style.display="none",2600)}
+function login(){const u=document.getElementById("loginUser").value.trim().toLowerCase(),p=document.getElementById("loginPass").value;if(!/^\d{4}$/.test(p)){toast("El PIN debe tener exactamente 4 números");return}if(users[u]&&String(users[u].pass)===p){current={login:u,...users[u],firebaseUid:firebaseUid};localStorage.setItem("crmSessionV2",JSON.stringify({login:u}));document.getElementById("login").classList.add("hidden");document.getElementById("app").classList.remove("hidden");page="dashboard";render();recordUserAccess("login")}else toast("Usuario o PIN incorrectos")}
+function logout(){if(current)recordUserAccess("logout");current=null;localStorage.removeItem("crmSessionV2");document.getElementById("app").classList.add("hidden");document.getElementById("login").classList.remove("hidden");document.getElementById("loginPass").value=""}
+function recordUserAccess(type){try{const key=current?.login||document.getElementById("loginUser")?.value?.trim().toLowerCase();if(!key)return;const ref=firebaseUid||"sin-firebase-uid";const entry={user:key,name:users[key]?.name||current?.name||key,role:users[key]?.role||current?.role||"",type,uid:ref,date:new Date().toISOString()};const logs=readJSON("crmAccessLogV2",[]);logs.unshift(entry);localStorage.setItem("crmAccessLogV2",JSON.stringify(logs.slice(0,500)));if(cloudReady&&cloudRef){const logRef=firebase.database().ref("publiartColorsCRM/accessLog").push();logRef.set(entry).catch(()=>{})}}catch(e){console.warn(e)}}
+function buildNav(){
+ document.getElementById("sideName").textContent=current.name;document.getElementById("sideRole").textContent=current.role;
+ let n=[["dashboard","Dashboard"],["pipeline","Embudo comercial"]];
+ if(current.login==="admin")n.push(["registrar","Registrar gestión"],["asignaciones","Asignaciones"],["rendimiento","Rendimiento"],["graficos","Gráficos"],["bsc","Balanced Scorecard"],["usuarios","Usuarios y claves"]);
+ else if(current.login==="gerente")n.push(["rendimiento","Rendimiento"],["graficos","Gráficos"],["bsc","Balanced Scorecard"]);
+ else n.push(["misasignaciones","Mis asignaciones"],["registrar","Registrar gestión"]);
+ document.getElementById("nav").innerHTML=n.map(x=>`<button class="${page===x[0]?"active":""}" onclick="page='${x[0]}';render()">${x[1]}</button>`).join("");
+}
+function setTop(title,sub){document.getElementById("pageTitle").textContent=title;document.getElementById("pageSub").textContent=sub}
+function globalFilters(){
+ const admin=current.login==="admin"||current.login==="gerente";
+ if(!admin){document.getElementById("globalFilters").innerHTML="";return}
+ document.getElementById("globalFilters").innerHTML=`<input type="month" value="${filters.month}" onchange="filters.month=this.value;render()"><select onchange="filters.exec=this.value;render()"><option>Todos</option>${execOptions()}</select><select onchange="filters.status=this.value;render()"><option>Todos</option>${stages.map(s=>`<option ${filters.status===s?"selected":""}>${s}</option>`).join("")}</select><select onchange="filters.line=this.value;render()"><option>Todas</option>${lineNames.map(l=>`<option ${filters.line===l?"selected":""}>${l}</option>`).join("")}</select>`;
+ setOnlineIndicator();
+}
+function execOptions(){return Object.entries(users).filter(([k,u])=>u.role==="Ejecutivo Comercial"||u.role==="Punto de Venta").map(([k,u])=>`<option value="${k}" ${filters.exec===k?"selected":""}>${esc(u.name)}</option>`).join("")}
+function visibleRecords(){
+ let rs=data.records;
+ if(current.login!=="admin"&&current.login!=="gerente")rs=rs.filter(r=>r.executive===current.key);
+ if((current.login==="admin"||current.login==="gerente")&&filters.exec!=="Todos")rs=rs.filter(r=>r.executive===filters.exec);
+ if(filters.status!=="Todos")rs=rs.filter(r=>r.status===filters.status);
+ if(filters.line!=="Todas")rs=rs.filter(r=>r.line===filters.line);
+ if(filters.month)rs=rs.filter(r=>(r.assignedDate||r.date||"").slice(0,7)===filters.month);
+ return rs;
+}
+function allExecs(){return Object.entries(users).filter(([k,u])=>u.role==="Ejecutivo Comercial"||u.role==="Punto de Venta")}
+function stats(rs,exec){
+ const target=targets[exec]||{total:0,parts:0,pub:0,management:40};
+ const sale=rs.filter(r=>r.status==="Ganado").reduce((a,r)=>a+Number(r.saleValue||r.value||0),0);
+ const quoted=rs.reduce((a,r)=>a+Number(r.quotedValue||0),0);
+ const accepted=rs.filter(r=>r.acceptedDate).length;
+ const management=rs.reduce((a,r)=>a+Number(exec==="marbel"?(r.newClient||r.management||0):(r.management||0)),0);
+ const managementTarget=Number(target.management||40)||40;
+ const parts=rs.filter(r=>r.line==="Parts Supply"&&r.status==="Ganado").reduce((a,r)=>a+Number(r.saleValue||r.value||0),0);
+ const pub=rs.filter(r=>r.line==="Publiart Colors"&&r.status==="Ganado").reduce((a,r)=>a+Number(r.saleValue||r.value||0),0);
+ return {target,managementTarget,sale,quoted,accepted,management,parts,pub,totalPct:target.total?sale/target.total:0,partsPct:target.parts?parts/target.parts:0,pubPct:target.pub?pub/target.pub:0,managementPct:managementTarget?management/managementTarget:0,win:rs.filter(r=>r.status==="Ganado").length,lost:rs.filter(r=>r.status==="Perdido").length};
+}
+function render(){if(!current)return;try{globalFilters();buildNav();({dashboard:renderDashboard,pipeline:renderPipeline,registrar:renderRegistrar,asignaciones:renderAssignments,rendimiento:renderPerformance,graficos:renderCharts,bsc:renderBSC,usuarios:renderUsers,misasignaciones:renderMyAssignments}[page]||renderDashboard)()}catch(err){console.error(err);document.getElementById("content").innerHTML=`<div class="notice"><b>Se produjo un error al cargar esta vista.</b><br><span class="mini">Los datos no se han eliminado y la sesión continúa activa.</span></div><div class="actions"><button class="primary" onclick="page='dashboard';render()">Volver al Dashboard</button></div>`}}
+function card(label,val,sub=""){return `<div class="card"><div class="label">${label}</div><div class="value">${val}</div><div class="sub">${sub}</div></div>`}
+function renderDashboard(){
+ setTop("Dashboard","Rendimiento comercial y cumplimiento de objetivos");
+ const rs=visibleRecords(), own=current.login==="admin"||current.login==="gerente"?null:current.key;
+ const list=own?allExecs().filter(([k])=>k===own):allExecs();
+ let total=0,quoted=0,accepted=0,management=0,managementTarget=0;list.forEach(([k])=>{const s=stats(rs.filter(r=>r.executive===k),k);total+=s.sale;quoted+=s.quoted;accepted+=s.accepted;management+=s.management;managementTarget+=s.managementTarget});
+ const target=list.reduce((a,[k])=>a+(targets[k]?.total||0),0), comp=target?total/target:0;
+ document.getElementById("content").innerHTML=`
+ <div class="cards">${card("Ventas ganadas",money(total),"Meta: "+money(target))}${card("Cumplimiento",pct(comp),"Ventas / meta")}${card("Cotizado",money(quoted),"Valor acumulado cotizado")}${card("Asignaciones aceptadas",accepted,"En el período")}${card(current.key==="marbel"?"Clientes nuevos atendidos":"Gestiones realizadas",management,"Meta: "+managementTarget+" · Cumplimiento: "+pct(managementTarget?management/managementTarget:0))}</div>
+ <div class="dashboard-performance"><div class="panel performance-panel"><div class="section-head"><div><h2>Rendimiento por ejecutivo</h2><p>Seguimiento individual de ventas, gestión y aceptaciones. La gestión y el cumplimiento monetario se visualizan por separado.</p></div><span class="section-live">● Actualización en tiempo real</span></div>${performanceMini(rs,list)}</div></div><div class="grid dashboard-lower"><div class="panel"><h2>Embudo comercial</h2>${funnel(rs)}</div><div class="panel"><h2>Resumen de estados</h2>${statusSummary(rs)}</div></div>
+ <div class="grid3"><div class="panel"><h2>Ventas por línea</h2>${lineSummary(rs,list)}</div><div class="panel"><h2>Estados</h2>${statusSummary(rs)}</div><div class="panel"><h2>Acciones</h2><div class="actions">${(current.login==="admin")?'<button class="primary" onclick="page=\'asignaciones\';render()">Asignar prospecto</button>':''}<button class="secondary" onclick="page='pipeline';render()">Ver embudo</button><button class="secondary" onclick="page='bsc';render()">Analizar objeciones</button></div></div></div>`;
+}
+function performanceMini(rs,list){
+ if(!list.length)return `<div class="exec-empty">No hay ejecutivos para mostrar con los filtros actuales.</div>`;
+ return `<div class="performance-list">${list.map(([k,u])=>{
+   const s=stats(rs.filter(r=>r.executive===k),k), c=s.totalPct, g=s.managementPct;
+   const moneyState=c>=1?'green':c>=.6?'orange':'red';
+   const mgState=g>=1?'green':g>=.6?'orange':'red';
+   return `<article class="performance-card">
+     <div class="performance-identity"><div class="avatar">${esc((u.name||'').split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><div><h3>${esc(u.name)}</h3><span>${esc(u.role||'Ejecutivo Comercial')}</span></div></div>
+     <div class="performance-money"><div class="metric-label">VENTAS GANADAS</div><strong>${money(s.sale)}</strong><div class="metric-target">Meta ${money(s.target.total)}</div><div class="clean-progress"><i class="${moneyState}" style="width:${Math.min(c*100,100)}%"></i></div><div class="progress-meta"><span>${pct(c)} cumplimiento</span><span>${money(s.target.total-s.sale>0?s.target.total-s.sale:0)} pendiente</span></div></div>
+     <div class="performance-management"><div class="metric-label">GESTIÓN COMERCIAL</div><div class="management-number"><strong>${s.management}</strong><span>/ ${s.managementTarget}</span><b class="${mgState}">${pct(g)}</b></div><div class="clean-progress"><i class="${mgState}" style="width:${Math.min(g*100,100)}%"></i></div><div class="progress-meta"><span>Meta mensual: ${s.managementTarget}</span><span>${s.managementTarget-s.management>0?s.managementTarget-s.management:0} por realizar</span></div></div>
+     <div class="performance-accepted"><div class="metric-label">ACEPTADOS</div><strong>${s.accepted}</strong><span>registros</span></div>
+   </article>`;
+ }).join('')}</div>`;
+}
+function funnel(rs){
+ return `<div>${stages.slice(0,6).map(st=>{const n=rs.filter(r=>r.status===st).length;return `<div style="margin:12px 0"><div style="display:flex;justify-content:space-between;font-size:11px"><b>${st}</b><span>${n}</span></div><div class="progress"><i style="width:${Math.min(100,n*15)}%"></i></div></div>`}).join("")}</div>`
+}
+function lineSummary(rs,list){
+ let p=0,u=0;rs.forEach(r=>{if(r.status==="Ganado"){if(r.line==="Parts Supply")p+=Number(r.saleValue||r.value||0);else u+=Number(r.saleValue||r.value||0)}});return `<div class="notice"><b>Parts Supply</b><br>${money(p)}<br><span class="mini">Participación: ${pct((p+u)?p/(p+u):0)}</span></div><div class="notice"><b>Publiart Colors</b><br>${money(u)}<br><span class="mini">Participación: ${pct((p+u)?u/(p+u):0)}</span></div>`
+}
+function statusSummary(rs){return stages.map(s=>`<span class="badge ${statusClass(s)}" style="margin:4px">${s}: ${rs.filter(r=>r.status===s).length}</span>`).join("")}
+function renderPipeline(){
+ setTop("Embudo comercial","Oportunidades diferenciadas por etapa, valor y estado");
+ const rs=visibleRecords();document.getElementById("content").innerHTML=`<div class="grid3">${stages.map(st=>{const a=rs.filter(r=>r.status===st),v=a.reduce((x,r)=>x+Number(st==="Ganado"?r.saleValue||r.value:r.quotedValue||r.value||0),0);return `<div class="panel"><h2><span class="badge ${statusClass(st)}">${stageLabel(st)}</span></h2><div class="value">${a.length}</div><div class="sub">${money(v)}</div><div style="margin-top:14px">${a.slice(0,8).map(r=>`<div class="notice" onclick="showRecord('${r.id}')" style="cursor:pointer"><b>${esc(r.client)}</b><br><span class="mini">${esc(users[r.executive]?.name||r.executive)} · ${r.line} · ${money(r.saleValue||r.quotedValue||r.value)}</span></div>`).join("")||'<div class="empty">Sin registros</div>'}</div></div>`}).join("")}</div>`;
+}
+function renderRegistrar(){
+ setTop("Registrar gestión","Cree o actualice oportunidades y deje trazabilidad");
+ const isMarbel=current.key==="marbel";
+ document.getElementById("content").innerHTML=`<div class="panel"><h2>Nueva oportunidad / cliente</h2><form onsubmit="createRecord(event)"><div class="form-grid">
+ <div class="field"><label>Cliente / Prospecto</label><input name="client" required></div><div class="field"><label>Contacto</label><input name="contact"></div>
+ <div class="field"><label>Línea de negocio</label><select name="line"><option>Parts Supply</option><option>Publiart Colors</option></select></div><div class="field full"><label>¿Qué se ofrece al prospecto / cliente?</label><div class="notice" style="display:flex;gap:14px;flex-wrap:wrap">${offerItems.map(x=>`<label style="display:flex;align-items:center;gap:6px;font-size:12px"><input type="checkbox" name="offers" value="${x}"> ${x}</label>`).join("")}</div></div>
+ ${current.login==="admin"?`<div class="field"><label>Ejecutivo</label><select name="executive">${execOptions()}</select></div>`:`<div class="field"><label>Ejecutivo</label><input value="${esc(current.name)}" disabled></div>`}
+ <div class="field"><label>Estado</label><select name="status" onchange="toggleLoss(this.value)">${stages.map(s=>`<option>${s}</option>`).join("")}</select></div>
+ <div class="field"><label>Valor cotizado</label><input name="quotedValue" type="number" min="0" step="1"></div>
+ <div class="field"><label>Valor negociación</label><input name="negotiationValue" type="number" min="0" step="1"></div>
+ <div class="field"><label>Valor venta ganada</label><input name="saleValue" type="number" min="0" step="1"></div>
+ <div class="field"><label>${isMarbel?"Clientes nuevos atendidos":"Gestiones realizadas"}</label><input name="management" type="number" min="0" value="1"></div>
+ <div class="field hidden" id="lossField"><label>Razón de pérdida</label><select name="lossReason">${lossReasons.map(x=>`<option>${x}</option>`).join("")}</select></div>
+ <div class="field full"><label>Observaciones / próxima acción</label><textarea name="notes"></textarea></div>
+ </div><div class="actions"><button class="primary">Guardar gestión</button><button type="button" class="secondary" onclick="page='dashboard';render()">Cancelar</button></div></form></div>`;
+}
+function toggleLoss(v){document.getElementById("lossField")?.classList.toggle("hidden",v!=="Perdido")}
+function createRecord(e){
+ e.preventDefault();const f=new FormData(e.target),k=current.login==="admin"?f.get("executive"):current.key,st=f.get("status"),offers=f.getAll("offers"),now=new Date().toISOString(),r={id:uid(),client:f.get("client"),contact:f.get("contact"),line:f.get("line"),executive:k,assignedDate:today(),acceptedDate:st!=="Nuevo"?today():null,status:st,offers:offers,value:Number(f.get("saleValue")||f.get("quotedValue")||0),quotedValue:Number(f.get("quotedValue")||0),negotiationValue:Number(f.get("negotiationValue")||0),saleValue:Number(f.get("saleValue")||0),management:Number(f.get("management")||0),newClient:current.key==="marbel"?Number(f.get("management")||0):0,notes:f.get("notes"),lossReason:st==="Perdido"?f.get("lossReason"):"",createdBy:current.login,createdByUid:firebaseUid||null,events:[{date:now,type:"Registro creado",text:`Creado por ${current.name}. Estado: ${st}.`}]};
+ data.records.unshift(r);save();toast("Gestión registrada");page="dashboard";render();
+}
+function renderAssignments(){
+ setTop("Asignaciones","Asigne prospectos y clientes; el ejecutivo debe aceptar cada asignación");
+ let rows=data.records.filter(r=>current.login==="admin"||r.executive===current.key);
+ if((current.login==="admin"||current.login==="gerente")&&filters.exec!=="Todos")rows=rows.filter(r=>r.executive===filters.exec);
+ if(filters.status!=="Todos")rows=rows.filter(r=>r.status===filters.status);
+ if(filters.line!=="Todas")rows=rows.filter(r=>r.line===filters.line);
+ rows=rows.filter(r=>!filters.month||String(r.assignedDate||"").slice(0,7)===filters.month);
+ document.getElementById("content").innerHTML=`<div class="panel"><div class="actions" style="justify-content:space-between"><h2>Asignaciones</h2><button class="primary" onclick="newAssignment()">+ Nueva asignación</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Cliente</th><th>Línea</th><th>Ejecutivo</th><th>Asignado</th><th>Aceptado</th><th>Estado</th><th>Acción</th></tr></thead><tbody>${rows.map(r=>`<tr><td><b>${esc(r.client)}</b></td><td>${r.line}</td><td>${esc(users[r.executive]?.name||r.executive)}</td><td>${fmtDate(r.assignedDate)}</td><td>${r.acceptedDate?fmtDate(r.acceptedDate):'<span class="badge orange">Pendiente</span>'}</td><td><span class="badge ${statusClass(r.status)}">${r.status}</span></td><td><button class="secondary" onclick="showRecord('${r.id}')">Ver / editar</button></td></tr>`).join("")||'<tr><td colspan="7" class="empty">No hay asignaciones.</td></tr>'}</tbody></table></div></div>`;
+}
+function newAssignment(){
+ document.getElementById("modalTitle").textContent="Asignar nuevo prospecto / cliente";
+ document.getElementById("modalBody").innerHTML=`<form onsubmit="saveAssignment(event)"><div class="form-grid"><div class="field"><label>Cliente / Prospecto</label><input name="client" required></div><div class="field"><label>Contacto</label><input name="contact"></div><div class="field"><label>Línea</label><select name="line"><option>Parts Supply</option><option>Publiart Colors</option></select></div><div class="field"><label>Ejecutivo</label><select name="executive" required>${execOptions()}</select></div><div class="field full"><label>Observación inicial</label><textarea name="notes"></textarea></div></div><button class="primary">Asignar</button></form>`;openModal();
+}
+function saveAssignment(e){
+ e.preventDefault();const f=new FormData(e.target),k=f.get("executive"),r={id:uid(),client:f.get("client"),contact:f.get("contact"),line:f.get("line"),executive:k,assignedDate:today(),acceptedDate:null,status:"Nuevo",value:0,quotedValue:0,negotiationValue:0,saleValue:0,management:0,newClient:0,notes:f.get("notes"),lossReason:"",createdBy:current.login,createdByUid:firebaseUid||null,events:[{date:new Date().toISOString(),type:"Asignación",text:`Asignado por ${current.name} a ${users[k].name}. Pendiente de aceptación.`}]};data.records.unshift(r);save();closeModal();toast("Asignación enviada");render();
+}
+function acceptRecord(id){
+ const r=data.records.find(x=>x.id===id);if(!r)return;r.acceptedDate=new Date().toISOString();r.status="Aceptado";r.events.unshift({date:r.acceptedDate,type:"Asignación aceptada",text:`Aceptada por ${current.name}.`});save();toast("Asignación aceptada");render();showRecord(id);
+}
+function showRecord(id){
+ const r=data.records.find(x=>x.id===id);if(!r)return;document.getElementById("modalTitle").textContent=`${r.client} · ${r.line}`;
+ const canAccept=!r.acceptedDate&&r.executive===current.key&&current.login!=="admin"&&current.login!=="gerente";
+ const canEdit=current.login==="admin"||current.login==="gerente"||r.executive===current.key;
+ document.getElementById("modalBody").innerHTML=`<div class="split"><div><div class="notice"><b>Ejecutivo:</b> ${esc(users[r.executive]?.name||r.executive)}<br><b>Asignado:</b> ${fmtDate(r.assignedDate)}<br><b>Aceptado:</b> ${r.acceptedDate?fmtDate(r.acceptedDate):"Pendiente"}<br><b>Estado:</b> <span class="badge ${statusClass(r.status)}">${r.status}</span><br><b>Valor cotizado:</b> ${money(r.quotedValue)}<br><b>Negociación:</b> ${money(r.negotiationValue)}<br><b>Venta:</b> ${money(r.saleValue)}<br><b>Oferta:</b> ${esc((r.offers||[]).join(", ")||"Sin selección")}</div><div class="actions">${canAccept?'<button class="primary" onclick="acceptRecord(\''+r.id+'\')">✓ Aceptar asignación</button>':""}${canEdit?'<button class="secondary" onclick="editRecord(\''+r.id+'\')">✎ Editar registro</button>':""}</div></div><div><h3>Toda la gestión y trazabilidad</h3><div class="timeline">${(r.events||[]).map(e=>`<div class="event"><b>${esc(e.type)} · ${new Date(e.date).toLocaleString("es-CO")}</b><p>${esc(e.text)}</p></div>`).join("")}</div></div></div><div class="notice" style="margin-top:14px"><b>Notas:</b> ${esc(r.notes||"Sin observaciones")} ${r.lossReason?`<br><b>Razón de pérdida:</b> ${esc(r.lossReason)}`:""}</div>`;
+ openModal();
+}
+function execOptionsFor(selected){return allExecs().map(([k,u])=>`<option value="${k}" ${selected===k?"selected":""}>${esc(u.name)}</option>`).join("");}
+function editRecord(id){
+ const r=data.records.find(x=>x.id===id);if(!r)return;
+ const canEdit=current.login==="admin"||current.login==="gerente"||r.executive===current.key;if(!canEdit){toast("No tienes permiso para editar este registro");return}
+ document.getElementById("modalTitle").textContent=`Editar · ${r.client}`;
+ document.getElementById("modalBody").innerHTML=`<form onsubmit="saveRecord(event,'${r.id}')"><div class="form-grid">
+ <div class="field"><label>Cliente / Prospecto</label><input name="client" value="${esc(r.client)}" required></div>
+ <div class="field"><label>Contacto</label><input name="contact" value="${esc(r.contact||"")}"></div>
+ <div class="field"><label>Línea de negocio</label><select name="line">${lineNames.map(x=>`<option ${r.line===x?"selected":""}>${x}</option>`).join("")}</select></div><div class="field"><label>Ejecutivo asignado</label><select name="executive" ${current.login==="admin"||current.login==="gerente"?"":"disabled"}>${execOptionsFor(r.executive)}</select></div>
+ <div class="field full"><label>¿Qué se ofrece al prospecto / cliente?</label><div class="notice" style="display:flex;gap:14px;flex-wrap:wrap">${offerItems.map(x=>`<label style="display:flex;align-items:center;gap:6px;font-size:12px"><input type="checkbox" name="offers" value="${x}" ${(r.offers||[]).includes(x)?"checked":""}> ${x}</label>`).join("")}</div></div>
+ <div class="field"><label>Estado</label><select name="status" onchange="toggleLoss(this.value)">${stages.map(s=>`<option ${r.status===s?"selected":""}>${s}</option>`).join("")}</select></div>
+ <div class="field"><label>Valor cotizado</label><input name="quotedValue" type="number" min="0" step="1" value="${Number(r.quotedValue||0)}"></div>
+ <div class="field"><label>Valor negociación</label><input name="negotiationValue" type="number" min="0" step="1" value="${Number(r.negotiationValue||0)}"></div>
+ <div class="field"><label>Valor venta ganada</label><input name="saleValue" type="number" min="0" step="1" value="${Number(r.saleValue||0)}"></div>
+ <div class="field"><label>Gestiones realizadas</label><input name="management" type="number" min="0" step="1" value="${Number(r.management||0)}"></div>
+ <div class="field ${r.status==="Perdido"?"":"hidden"}" id="lossField"><label>Razón de pérdida</label><select name="lossReason">${lossReasons.map(x=>`<option ${r.lossReason===x?"selected":""}>${x}</option>`).join("")}</select></div>
+ <div class="field full"><label>Observaciones / próxima acción</label><textarea name="notes">${esc(r.notes||"")}</textarea></div>
+ </div><div class="actions"><button class="primary">Guardar cambios</button><button type="button" class="secondary" onclick="showRecord('${r.id}')">Cancelar</button></div></form>`;
+ openModal();
+}
+function saveRecord(e,id){
+ e.preventDefault();const r=data.records.find(x=>x.id===id);if(!r)return;
+ const canEdit=current.login==="admin"||current.login==="gerente"||r.executive===current.key;if(!canEdit){toast("No tienes permiso para editar este registro");return}
+ const f=new FormData(e.target),oldStatus=r.status,oldExec=r.executive,st=f.get("status"),newExec=f.get("executive")||r.executive,offers=f.getAll("offers");
+ r.client=f.get("client");r.contact=f.get("contact");r.line=f.get("line");r.status=st;r.offers=offers;if(current.login==="admin"||current.login==="gerente")r.executive=newExec;
+ r.quotedValue=Number(f.get("quotedValue")||0);r.negotiationValue=Number(f.get("negotiationValue")||0);r.saleValue=Number(f.get("saleValue")||0);
+ r.value=Number(r.saleValue||r.quotedValue||0);r.management=Number(f.get("management")||0);r.lossReason=st==="Perdido"?f.get("lossReason"):"";r.notes=f.get("notes")||"";
+ if(st!=="Nuevo"&&!r.acceptedDate)r.acceptedDate=today();
+ r.events=r.events||[];
+ if(oldStatus!==st)r.events.unshift({date:new Date().toISOString(),type:"Cambio de estado",text:`${current.name} cambió el estado de ${oldStatus} a ${st}.`});
+ if(oldExec!==newExec)r.events.unshift({date:new Date().toISOString(),type:"Reasignación",text:`${current.name} reasignó el registro a ${users[newExec]?.name||newExec}.`});
+ else r.updatedBy=current.login;r.updatedByUid=firebaseUid||null;r.events.unshift({date:new Date().toISOString(),type:"Registro actualizado",text:`${current.name} actualizó la gestión.`});
+ save();closeModal();toast("Registro actualizado");render();
+}
+function filteredExecList(){
+ const all=allExecs();
+ if(current.login!=="admin"&&current.login!=="gerente"&&current.role!=="Consulta") return all.filter(([k])=>k===current.key);
+ if(filters.exec && filters.exec!=="Todos") return all.filter(([k])=>k===filters.exec);
+ return all;
+}
+function liveStrip(){
+ const state=cloudReady?`<span class="live-state"><span class="live-dot"></span>Sincronización activa</span>`:`<span class="live-state offline"><span class="live-dot"></span>Modo local</span>`;
+ const when=lastCloudUpdate?new Date(lastCloudUpdate).toLocaleString("es-CO",{dateStyle:"short",timeStyle:"medium"}):"Esperando sincronización";
+ return `<div class="live-strip"><div>${state} <strong>· Administrador y Consulta ven los cambios de todos los comerciales al sincronizarse.</strong></div><div>Última actualización: <strong>${when}</strong></div></div>`;
+}
+function execPerformanceRows(rs,list){
+ if(!list.length)return `<div class="exec-empty">No hay ejecutivos para mostrar con los filtros actuales.</div>`;
+ return `<div class="exec-chart">${list.map(([k,u])=>{const s=stats(rs.filter(r=>r.executive===k),k),p=Math.min(s.totalPct*100,100),state=s.totalPct>=1?'green':s.totalPct>=.6?'orange':'red';return `<div class="exec-row"><div class="exec-name">${esc(u.name)}<small>${esc(u.role||'Ejecutivo Comercial')}</small></div><div class="metric-track-wrap"><div class="metric-track"><div class="metric-fill" style="width:${p}%;background:${state==='green'?'#16834b':state==='orange'?'#d97706':'#c62828'}"></div></div><div class="target-line"><span>Meta ${money(s.target.total)}</span><span>${money(s.sale)} vendido</span></div></div><div><div class="metric-main">${money(s.sale)}</div><div class="metric-sub">ventas ganadas</div></div><div class="metric-pct">${pct(s.totalPct)}<small>cumplimiento</small></div></div>`}).join('')}</div>`;
+}
+function execManagementRows(rs,list){
+ if(!list.length)return `<div class="exec-empty">No hay ejecutivos para mostrar con los filtros actuales.</div>`;
+ return `<div class="exec-chart">${list.map(([k,u])=>{const s=stats(rs.filter(r=>r.executive===k),k),p=Math.min(s.managementPct*100,100),state=s.managementPct>=1?'green':s.managementPct>=.6?'orange':'red';return `<div class="exec-row"><div class="exec-name">${esc(u.name)}<small>${esc(u.role||'Ejecutivo Comercial')}</small></div><div class="metric-track-wrap"><div class="metric-track"><div class="metric-fill" style="width:${p}%;background:${state==='green'?'#16834b':state==='orange'?'#d97706':'#c62828'}"></div></div><div class="target-line"><span>Meta de gestión ${s.managementTarget}</span><span>${s.management} gestiones realizadas</span></div></div><div><div class="metric-main">${s.management} / ${s.managementTarget}</div><div class="metric-sub">gestión</div></div><div class="metric-pct">${pct(s.managementPct)}<small>cumplimiento</small></div></div>`}).join('')}</div>`;
+}
+function renderPerformance(){
+ setTop("Rendimiento","Cumplimiento consolidado de las dos líneas de negocio");
+ const rs=visibleRecords(),list=filteredExecList();
+ document.getElementById("content").innerHTML=`${liveStrip()}<div class="chart-section"><div class="panel"><h2>💰 Rendimiento comercial — ventas ganadas vs meta</h2><p class="chart-caption">Cada ejecutivo tiene su indicador independiente. La venta ganada consolida Parts Supply + Publiart Colors y se compara con su meta monetaria.</p>${execPerformanceRows(rs,list)}</div></div><div class="chart-section"><div class="panel"><h2>🤝 Gestión comercial — actividad vs meta</h2><p class="chart-caption">La meta de gestión se controla por separado: <b>40 gestiones por ejecutivo</b>, sin mezclarla con el indicador monetario.</p>${execManagementRows(rs,list)}</div></div><div class="panel" style="margin-top:18px"><div class="table-wrap"><table class="table"><thead><tr><th>Ejecutivo</th><th>Meta dinero</th><th>Ventas</th><th>% dinero</th><th>Gestión</th><th>% gestión</th><th>Aceptadas</th></tr></thead><tbody>${list.map(([k,u])=>{const s=stats(rs.filter(r=>r.executive===k),k);return `<tr><td><b>${esc(u.name)}</b></td><td>${money(s.target.total)}</td><td><b>${money(s.sale)}</b></td><td><span class="badge ${s.totalPct>=1?'green':s.totalPct>=.6?'orange':'red'}">${pct(s.totalPct)}</span></td><td>${s.management} / ${s.managementTarget}</td><td><span class="badge ${s.managementPct>=1?'green':s.managementPct>=.6?'orange':'red'}">${pct(s.managementPct)}</span></td><td>${s.accepted}</td></tr>`}).join('')||'<tr><td colspan="7" class="empty">No hay datos para mostrar.</td></tr>'}</tbody></table></div></div>`;
+}
+function renderCharts(){
+ setTop("Gráficos","Indicadores comerciales con seguimiento independiente y actualización en tiempo real");
+ const rs=visibleRecords(),list=filteredExecList();
+ document.getElementById("content").innerHTML=`${liveStrip()}<div class="chart-section"><div class="panel"><h2>🎯 Rendimiento monetario por ejecutivo</h2><p class="chart-caption">Indicador independiente de gestión. Muestra ventas ganadas, meta y porcentaje de cumplimiento.</p>${execPerformanceRows(rs,list)}</div></div><div class="chart-section"><div class="panel"><h2>🤝 Gestión realizada vs meta 40</h2><p class="chart-caption">Indicador independiente de actividad comercial. La base es <b>40 gestiones mensuales por ejecutivo</b>.</p>${execManagementRows(rs,list)}</div></div><div class="grid"><div class="panel"><h2>💰 Ventas ganadas por ejecutivo</h2>${simpleBars(rs,list,'sale')}</div><div class="panel"><h2>📌 Aceptaciones por ejecutivo</h2>${simpleBars(rs,list,'accepted')}</div></div><div class="grid"><div class="panel"><h2>📊 Estados de oportunidades</h2>${statusChart(rs)}</div><div class="panel"><h2>🏷️ Participación por línea (%) + dinero</h2>${lineChart(rs)}</div></div><div class="grid"><div class="panel"><h2>📦 Participación por producto (%)</h2>${offerChart(rs)}</div><div class="panel"><h2>📋 Resumen por ejecutivo</h2>${performanceMini(rs,list)}</div></div>`;
+}
+function simpleBars(rs,list,type){
+ if(!list.length)return `<div class="exec-empty">Sin datos.</div>`;
+ const vals=list.map(([k,u])=>{const s=stats(rs.filter(r=>r.executive===k),k);return {name:u.name,v:type==='sale'?s.sale:s.accepted}});
+ const max=Math.max(1,...vals.map(x=>x.v));
+ return `<div class="chart">${vals.map((x,i)=>`<div style="animation-delay:${i*70}ms"><div class="barwrap"><div class="bar" style="height:${Math.max(3,x.v/max*100)}%;background:${type==='sale'?'linear-gradient(180deg,#ffd166,#ff7b00)':'linear-gradient(180deg,#b967ff,#6c4cff)'}"><span>${type==='sale'?money(x.v):x.v}</span></div></div><div class="barlabel">${esc(x.name)}</div></div>`).join('')}</div><div class="mini" style="margin-top:8px">${type==='sale'?'Ventas ganadas en el período filtrado.':'Asignaciones aceptadas por el ejecutivo en el período filtrado.'}</div>`;
+}
+function statusChart(rs){const total=Math.max(1,rs.length);return `<div class="reason-chart">${stages.map(s=>{const n=rs.filter(r=>r.status===s).length,p=n/total*100;return `<div class="reason-item"><span class="reason-label">${s}</span><div class="reason-track"><div class="reason-fill" style="width:${p}%"></div></div><span class="reason-pct">${p.toFixed(1)}%</span></div>`}).join("")}<div class="mini" style="color:#bcd0e3;margin-top:12px">Base: ${rs.length} oportunidades del período filtrado.</div></div>`}
+function lineChart(rs){const won=rs.filter(r=>r.status==="Ganado"),vals=lineNames.map(line=>({line,value:won.filter(r=>r.line===line).reduce((a,r)=>a+Number(r.saleValue||r.value||0),0)})),total=vals.reduce((a,x)=>a+x.value,0),max=Math.max(1,...vals.map(x=>x.value));return `<div class="chart">${vals.map((x,i)=>{const p=total?x.value/total:0;return `<div style="animation-delay:${i*80}ms"><div class="barwrap"><div class="bar" style="height:${Math.max(3,x.value/max*100)}%;background:linear-gradient(180deg,#ff4ecd,#7c3aed)"><span>${pct(p)}<small class="chart-value">${money(x.value)}</small></span></div></div><div class="barlabel">${esc(x.line)}</div></div>`}).join("")}</div><div class="mini" style="margin-top:10px">Total ganado: ${money(total)} · ${won.length} oportunidades Ganadas.</div>`}
+function offerChart(rs){const won=rs.filter(r=>r.status==="Ganado"),vals=offerItems.map(item=>({item,n:won.filter(r=>Array.isArray(r.offers)&&r.offers.includes(item)).length})),total=won.length,max=Math.max(1,...vals.map(x=>x.n));return `<div class="chart">${vals.map((x,i)=>{const p=total?x.n/total:0;return `<div style="animation-delay:${i*55}ms"><div class="barwrap"><div class="bar" style="height:${Math.max(3,x.n/max*100)}%;background:linear-gradient(180deg,#00f2fe,#4facfe)"><span>${pct(p)}</span></div></div><div class="barlabel">${esc(x.item)}</div></div>`}).join("")}</div><div class="mini" style="margin-top:10px">Base: ${total} oportunidades Ganadas. Un registro puede incluir varios productos.</div>`}
+function renderMyAssignments(){
+ setTop("Mis asignaciones","Prospectos y clientes asignados a ti; acepta cada nuevo registro");
+ const rs=data.records.filter(r=>r.executive===current.key).sort((a,b)=>(b.assignedDate||"").localeCompare(a.assignedDate||""));
+ document.getElementById("content").innerHTML=`<div class="notice"><b>Importante:</b> cada asignación debe ser aceptada. La fecha de aceptación queda registrada y se refleja en el rendimiento del administrador.</div><div class="panel"><h2>Mis registros</h2><div class="table-wrap"><table class="table"><thead><tr><th>Cliente</th><th>Línea</th><th>Fecha asignación</th><th>Aceptación</th><th>Estado</th><th>Acción</th></tr></thead><tbody>${rs.map(r=>`<tr><td><b>${esc(r.client)}</b></td><td>${r.line}</td><td>${fmtDate(r.assignedDate)}</td><td>${r.acceptedDate?`<span class="badge green">${fmtDate(r.acceptedDate)}</span>`:`<span class="badge orange">Pendiente</span>`}</td><td><span class="badge ${statusClass(r.status)}">${r.status}</span></td><td><button class="secondary" onclick="showRecord('${r.id}')">Abrir / editar</button></td></tr>`).join("")||'<tr><td colspan="6" class="empty">No tienes asignaciones.</td></tr>'}</tbody></table></div></div>`;
+}
+function renderUsers(){
+ setTop("Usuarios y claves","El administrador puede agregar, editar, desactivar y cambiar claves");
+ const list=Object.entries(users).filter(([k])=>k!=="admin");
+ document.getElementById("content").innerHTML=`<div class="panel"><h2>Datos del CRM</h2><div class="notice">Puedes conservar la información actual o restablecer únicamente los datos guardados en este navegador. <b>Restablecer no cierra la sesión.</b></div><div class="actions"><button class="secondary" onclick="keepData()">✓ Conservar datos</button><button class="danger" onclick="resetData()">↺ Restablecer datos</button></div></div><div class="actions" style="margin-top:15px"><button class="primary" onclick="editUser()">+ Agregar comercial / usuario</button></div><div class="panel" style="margin-top:15px"><div class="table-wrap"><table class="table"><thead><tr><th>Usuario</th><th>Nombre</th><th>Rol</th><th>Meta total</th><th>Meta Parts</th><th>Meta Publiart</th><th>Meta gestión</th><th>Acciones</th></tr></thead><tbody>${list.map(([k,u])=>`<tr><td>${esc(k)}</td><td>${esc(u.name)}</td><td>${esc(u.role)}</td><td>${money(targets[k]?.total||0)}</td><td>${money(targets[k]?.parts||0)}</td><td>${money(targets[k]?.pub||0)}</td><td>${targets[k]?.management||40}</td><td><button class="secondary" onclick="editUser('${k}')">Editar</button> <button class="danger" onclick="removeUser('${k}')">Quitar</button></td></tr>`).join("")}</tbody></table></div></div>`;
+}
+function editUser(k=""){
+ const u=users[k]||{pass:"",name:"",role:"Ejecutivo Comercial",key:k||""},t=targets[k]||{total:0,parts:0,pub:0};
+ document.getElementById("modalTitle").textContent=k?"Editar usuario":"Agregar usuario";
+ document.getElementById("modalBody").innerHTML=`<form onsubmit="saveUser(event,'${esc(k)}')"><div class="form-grid"><div class="field"><label>Usuario</label><input name="username" value="${esc(k)}" ${k?"disabled":"required"}></div><div class="field"><label>Nombre</label><input name="name" value="${esc(u.name)}" required></div><div class="field"><label>PIN de 4 dígitos</label><input name="pass" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" value="${esc(u.pass)}" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4)" required></div><div class="field"><label>Rol</label><select name="role">${["Ejecutivo Comercial","Punto de Venta","Consulta"].map(x=>`<option ${u.role===x?"selected":""}>${x}</option>`).join("")}</select></div><div class="field"><label>Meta mensual total</label><input name="total" type="number" value="${t.total||0}" min="0"></div><div class="field"><label>Meta mensual Parts Supply</label><input name="parts" type="number" value="${t.parts||0}" min="0"></div><div class="field"><label>Meta mensual Publiart Colors</label><input name="pub" type="number" value="${t.pub||0}" min="0"></div><div class="field"><label>Meta gestión mensual</label><input name="mgmt" type="number" value="${t.management||40}" min="0"></div></div><button class="primary">${k?"Guardar cambios":"Crear usuario"}</button></form>`;openModal();
+}
+function saveUser(e,k){
+ e.preventDefault();const f=new FormData(e.target),id=k||f.get("username").trim().toLowerCase(),pin=String(f.get("pass")||"").trim();if(!id||users[id]&&!k){toast("Ese usuario ya existe");return}if(!/^\d{4}$/.test(pin)){toast("El PIN debe tener exactamente 4 números");return}users[id]={pass:pin,name:f.get("name"),role:f.get("role"),key:id};targets[id]={total:Number(f.get("total")||0),parts:Number(f.get("parts")||0),pub:Number(f.get("pub")||0),management:Number(f.get("mgmt")||40)};delete deletedUsers[id];save();closeModal();toast("Usuario guardado");render();
+}
+function removeUser(k){if(k==="admin"){toast("El administrador principal no se puede eliminar");return}if(!confirm("¿Quitar este usuario? Los registros históricos se conservarán y el usuario no volverá a aparecer al recargar."))return;deletedUsers[k]={name:users[k]?.name||k,removedAt:new Date().toISOString(),removedBy:current.login,removedByUid:firebaseUid||null};delete users[k];delete targets[k];if(current.login===k){logout();return}save();toast("Usuario retirado definitivamente");render()}
+function renderBSC(){
+ setTop("Balanced Scorecard","Indicadores estratégicos expresados en porcentaje");
+ const rs=visibleRecords(),won=rs.filter(r=>r.status==="Ganado"),lost=rs.filter(r=>r.status==="Perdido");
+ const totalTarget=allExecs().filter(([k])=>current.login==="admin"||current.login==="gerente"?true:k===current.key).reduce((a,[k])=>a+(targets[k]?.total||0),0);
+ const sales=won.reduce((a,r)=>a+Number(r.saleValue||r.value||0),0);
+ const metrics=[
+  ["Financiero — cumplimiento de meta",totalTarget?sales/totalTarget:0],
+  ["Comercial — conversión a Ganado",(won.length+lost.length)?won.length/(won.length+lost.length):0],
+  ["Proceso — asignaciones aceptadas",rs.length?rs.filter(r=>r.acceptedDate).length/rs.length:0],
+  ["Gestión — oportunidades con seguimiento",rs.length?rs.filter(r=>Number(r.management||0)>0||r.notes).length/rs.length:0]
+ ];
+ const reasons={};lossReasons.forEach(x=>reasons[x]=0);lost.forEach(r=>reasons[r.lossReason||"Otra"]=(reasons[r.lossReason||"Otra"]||0)+1);
+ const totalLost=lost.length;
+ document.getElementById("content").innerHTML=`<div class="score">${card("Oportunidades perdidas",totalLost,"Período filtrado")}${card("Tasa de pérdida",pct(rs.length?totalLost/rs.length:0),"Perdidos / registros")}${card("Valor perdido",money(lost.reduce((a,r)=>a+Number(r.quotedValue||r.value||0),0)),"Cotizado asociado")}${card("Oportunidades ganadas",won.length,"Conversión comercial")}</div>
+ <div class="grid" style="margin-top:18px"><div class="panel"><h2>📈 Balanced Scorecard — cumplimiento (%)</h2><div class="bsc-chart">${metrics.map(([n,v])=>`<div class="bsc-row"><span class="bsc-name">${n}</span><div class="bsc-track"><div class="bsc-fill" style="width:${Math.min(v*100,100)}%"></div></div><span class="bsc-value">${pct(v)}</span></div>`).join("")}</div><div class="mini" style="margin-top:10px">Los porcentajes se calculan con los registros y metas disponibles en el período seleccionado.</div></div>
+ <div class="panel"><h2>⚠️ Objeciones / causas de pérdida (%)</h2><div class="reason-chart">${Object.entries(reasons).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).map(([r,n])=>{const p=totalLost?n/totalLost*100:0;return `<div class="reason-item"><span class="reason-label">${esc(r)}</span><div class="reason-track"><div class="reason-fill" style="width:${p}%"></div></div><span class="reason-pct">${p.toFixed(1)}%</span></div>`}).join("")||'<div class="empty" style="color:#fff">Aún no existen pérdidas tipificadas.</div>'}</div></div></div>
+ <div class="panel" style="margin-top:18px"><h2>Detalle de oportunidades perdidas</h2><div class="table-wrap"><table class="table"><thead><tr><th>Cliente</th><th>Ejecutivo</th><th>Línea</th><th>Valor</th><th>Razón</th><th>Fecha</th></tr></thead><tbody>${lost.map(r=>`<tr onclick="showRecord('${r.id}')" style="cursor:pointer"><td>${esc(r.client)}</td><td>${esc(users[r.executive]?.name||r.executive)}</td><td>${r.line}</td><td>${money(r.quotedValue||r.value)}</td><td><span class="badge red">${esc(r.lossReason||"Otra")}</span></td><td>${fmtDate(r.assignedDate)}</td></tr>`).join("")||'<tr><td colspan="6" class="empty">No hay oportunidades perdidas.</td></tr>'}</tbody></table></div></div>`;
+}
+function openModal(){document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+try{save()}catch(e){}
+</script>
+<script>
+// Firebase bootstrap: inicia la nube y restaura la sesión local sin pedir PIN al recargar.
+document.addEventListener("DOMContentLoaded",()=>{
+  try{
+    initCloud();
+    const sess=readJSON("crmSessionV2",null);
+    if(sess?.login&&users[sess.login]){
+      current={login:sess.login,...users[sess.login],firebaseUid:firebaseUid};
+      document.getElementById("login")?.classList.add("hidden");
+      document.getElementById("app")?.classList.remove("hidden");
+      render();
+    }
+  }catch(e){console.error("CRM bootstrap",e);setOnlineIndicator();}
+});
+</script>
+</body>
+</html>
